@@ -46,10 +46,10 @@ read -p "Voice Monkey secure token: " SECURE_TOKEN
 read -p "Monkey to enable Do Not Disturb: " MONKEY_ON
 read -p "Monkey to disable Do Not Disturb: " MONKEY_OFF
 
-sed -i 's/REPLACE_WITH_ACCESS_TOKEN/$ACCESS_TOKEN/g' "$INSTALL_DIR/config.yaml"
-sed -i 's/REPLACE_WITH_SECURE_TOKEN/$SECURE_TOKEN/g' "$INSTALL_DIR/config.yaml"
-sed -i 's/REPLACE_WITH_MONKEY_ON_ID/$MONKEY_ON/g' "$INSTALL_DIR/config.yaml"
-sed -i 's/REPLACE_WITH_MONKEY_OFF_ID/$MONKEY_OFF/g' "$INSTALL_DIR/config.yaml"
+sed -I '' "s/REPLACE_WITH_ACCESS_TOKEN/$ACCESS_TOKEN/g" "$INSTALL_DIR/config.yaml"
+sed -I '' "s/REPLACE_WITH_SECURE_TOKEN/$SECURE_TOKEN/g" "$INSTALL_DIR/config.yaml"
+sed -I '' "s/REPLACE_WITH_MONKEY_ON_ID/$MONKEY_ON/g" "$INSTALL_DIR/config.yaml"
+sed -I '' "s/REPLACE_WITH_MONKEY_OFF_ID/$MONKEY_OFF/g" "$INSTALL_DIR/config.yaml"
 
 echo
 echo "Enabling and starting daemon..."
@@ -62,8 +62,9 @@ echo "Installation complete."
 echo "You can modify the configuration by editting the following file:"
 echo $INSTALL_DIR/config.yaml
 echo 
-echo "You can stop the daemon using:"
-echo "launchctl start com.n-42.alexa-meeting"
+echo "You can stop and remove the daemon using:"
+echo "launchctl stop com.n-42.alexa-meeting"
+echo "launchctl remove com.n-42.alexa-meeting"
 echo
 echo "Logs can be found at: $INSTALL_DIR/logs.stdout"
 echo "and $INSTALL_DIR/logs.stderr"
