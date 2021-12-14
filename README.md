@@ -18,6 +18,14 @@ bash <(curl -s https://raw.githubusercontent.com/number42net/alexa-meeting/main/
 
 + Follow the instructions to update the configuration file
 
+### Uninstall
 
-/Users/martin.miedema/Library/Application Support/alexa-meeting/main.py
-/Users/martin.miedema/Library/Application Support/alexa-meeting
+To completely remove the application, run these commands:
+
+```
+launchctl stop com.n-42.alexa-meeting
+launchctl remove com.n-42.alexa-meeting
+
+rm ~/Library/LaunchAgents/com.n-42.alexa-meeting.plist
+rm -R ~/Library/Application\ Support/alexa-meeting
+```
