@@ -66,5 +66,5 @@ echo "You can stop and remove the daemon using:"
 echo "launchctl stop com.n-42.alexa-meeting"
 echo "launchctl remove com.n-42.alexa-meeting"
 echo
-echo "Logs can be found at: $INSTALL_DIR/logs.stdout"
-echo "and $INSTALL_DIR/logs.stderr"
+echo "Logs can be found at: $INSTALL_DIR/log.stdout"
+echo "and $INSTALL_DIR/log.stderr"
