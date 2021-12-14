@@ -1,0 +1,21 @@
+---
+## alexa-meeting configuration files
+## Default values are commented out
+
+## List of process names to trigger on
+#processes: 
+#    - "cpthost.app"
+#    - "Meeting Center.app"
+#    - "Microsoft Teams.app"
+
+## Log level (10 = Debug / 20 = INFO / 30 = WARNING / 40 = ERROR / 50 = Critical)
+#log_level: 20
+
+# Monkey API details - Required
+monkey_access_token: REPLACE_WITH_ACCESS_TOKEN
+monkey_secret_token: REPLACE_WITH_SECURE_TOKEN
+#monkey_url: https://api-eu.voicemonkey.io/trigger
+
+# Monkey IDs - Required
+monkey_on: REPLACE_WITH_MONKEY_ON_ID
+monkey_off: REPLACE_WITH_MONKEY_OFF_ID
