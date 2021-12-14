@@ -6,7 +6,7 @@ LAUNCH_AGENT=~/Library/LaunchAgents/com.n-42.alexa-meeting.plist
 
 echo "Starting installation..."
 
-mkdir -p $INSTALL_DIR
+mkdir -p "$INSTALL_DIR"
 mkdir -p "~/Library/LaunchAgents"
 
 cat <<EOT >> $LAUNCH_AGENT
@@ -36,21 +36,20 @@ cat <<EOT >> $LAUNCH_AGENT
 </plist>
 EOT
 
-echo "Downloading required files..."
-
 curl --silent --show-error "https://raw.githubusercontent.com/number42net/alexa-meeting/main/main.py" -o "$INSTALL_DIR/main.py"
 curl --silent --show-error "https://raw.githubusercontent.com/number42net/alexa-meeting/main/config.yaml" -o "$INSTALL_DIR/config.yaml"
 
+echo
 echo "Please fill in the following configuration details:"
 read -p "Voice Monkey access token: " ACCESS_TOKEN
 read -p "Voice Monkey secure token: " SECURE_TOKEN
 read -p "Monkey to enable Do Not Disturb: " MONKEY_ON
 read -p "Monkey to disable Do Not Disturb: " MONKEY_OFF
 
-sed -i 's/REPLACE_WITH_ACCESS_TOKEN/$ACCESS_TOKEN/g' $INSTALL_DIR/config.yaml
-sed -i 's/REPLACE_WITH_SECURE_TOKEN/$SECURE_TOKEN/g' $INSTALL_DIR/config.yaml
-sed -i 's/REPLACE_WITH_MONKEY_ON_ID/$MONKEY_ON/g' $INSTALL_DIR/config.yaml
-sed -i 's/REPLACE_WITH_MONKEY_OFF_ID/$MONKEY_OFF/g' $INSTALL_DIR/config.yaml
+sed -i 's/REPLACE_WITH_ACCESS_TOKEN/$ACCESS_TOKEN/g' "$INSTALL_DIR/config.yaml"
+sed -i 's/REPLACE_WITH_SECURE_TOKEN/$SECURE_TOKEN/g' "$INSTALL_DIR/config.yaml"
+sed -i 's/REPLACE_WITH_MONKEY_ON_ID/$MONKEY_ON/g' "$INSTALL_DIR/config.yaml"
+sed -i 's/REPLACE_WITH_MONKEY_OFF_ID/$MONKEY_OFF/g' "$INSTALL_DIR/config.yaml"
 
 echo
 echo "Enabling and starting daemon..."
