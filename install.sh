@@ -54,17 +54,12 @@ sed -I '' "s/REPLACE_WITH_MONKEY_OFF_ID/$MONKEY_OFF/g" "$INSTALL_DIR/config.yaml
 echo
 echo "Enabling and starting daemon..."
 launchctl load $LAUNCH_AGENT
-echo "Starting daemon"
 launchctl start com.n-42.alexa-meeting
 
 echo
 echo "Installation complete."
 echo "You can modify the configuration by editting the following file:"
 echo $INSTALL_DIR/config.yaml
-echo 
-echo "You can stop and remove the daemon using:"
-echo "launchctl stop com.n-42.alexa-meeting"
-echo "launchctl remove com.n-42.alexa-meeting"
 echo
 echo "Logs can be found at: $INSTALL_DIR/log.stdout"
 echo "and $INSTALL_DIR/log.stderr"
